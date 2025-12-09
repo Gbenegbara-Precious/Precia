@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authentication Portal</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .auth-container {
+      background: #fff;
+      width: 350px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid #4069fc;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #1e1e2f;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #4069fc;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #4069fc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #20388d;
+    }
+
+    .link {
+      display: block;
+      margin-top: 15px;
+      color: #4069fc;
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="auth-container">
+    <!-- Login Form -->
+    <div id="loginForm">
+      <h2>Login</h2>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button>Login</button>
+      <a class="link" onclick="showForm('signupForm')">Create Account</a>
+      <a class="link" onclick="showForm('forgotForm')">Forgot Password?</a>
+    </div>
+
+    <!-- Sign-Up Form -->
+    <div id="signupForm" class="hidden">
+      <h2>Sign Up</h2>
+      <input type="text" placeholder="Full Name" required>
+      <input type="number" placeholder="Number" required>
+      <input type="email" placeholder="Email" required>
+      <input type="password" placeholder="Password" required>
+      <button>Sign Up</button>
+      <a class="link" onclick="showForm('loginForm')">Already have an account? Login</a>
+    </div>
+
+    <!-- Forgot Password Form -->
+    <div id="forgotForm" class="hidden">
+      <h2>Reset Password</h2>
+      <input type="email" placeholder="Enter your email" required>
+      <button>Send Reset Link</button>
+      <a class="link" onclick="showForm('loginForm')">Back to Login</a>
+    </div>
+  </div>
+
+  <script>
+    function showForm(formId) {
+      document.getElementById("loginForm").classList.add("hidden");
+      document.getElementById("signupForm").classList.add("hidden");
+      document.getElementById("forgotForm").classList.add("hidden");
+      document.getElementById(formId).classList.remove("hidden");
+    }
+  </script>
+
+</body>
+</html>
